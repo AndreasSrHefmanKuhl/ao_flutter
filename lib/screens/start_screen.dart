@@ -17,7 +17,11 @@ class StartScreen extends StatelessWidget {
             bottom: 150,
             right: 65,
             child: Column(children: [
-              const SignInRow(),
+              const SignInRow(
+                width: 1,
+                radius: 12,
+                color: Colors.white70,
+              ),
               const SizedBox(height: 10),
               const Row(children: [
                 Divider(
