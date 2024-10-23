@@ -1,4 +1,5 @@
 import 'package:ao/widgets/sign_in_row.dart';
+import 'package:ao/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
@@ -6,10 +7,10 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         body: Stack(fit: StackFit.expand, children: [
-          const Image(
+          Image(
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
@@ -17,13 +18,13 @@ class StartScreen extends StatelessWidget {
             bottom: 150,
             right: 65,
             child: Column(children: [
-              const SignInRow(
+              SignInRow(
                 width: 1,
                 radius: 12,
                 color: Colors.white70,
               ),
-              const SizedBox(height: 10),
-              const Row(children: [
+              SizedBox(height: 10),
+              Row(children: [
                 Divider(
                   height: 2,
                   thickness: 10,
@@ -34,21 +35,8 @@ class StartScreen extends StatelessWidget {
                   thickness: 10,
                 ),
               ]),
-              const SizedBox(height: 10),
-              Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      border: Border.all(width: 1),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(10))),
-                  height: 35,
-                  width: 250,
-                  child: const Text(
-                    ' register urself for membership',
-                    style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                    textAlign: TextAlign.center,
-                  )),
+              SizedBox(height: 10),
+              UltButton(),
             ]),
           ),
         ]),
