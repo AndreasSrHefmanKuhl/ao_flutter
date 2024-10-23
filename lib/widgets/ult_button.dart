@@ -8,6 +8,7 @@ class UltButton extends StatelessWidget {
   final Color textColor;
   final double btnHeight;
   final double btnWidth;
+  final Color borderColor;
 
   const UltButton({
     super.key,
@@ -18,6 +19,7 @@ class UltButton extends StatelessWidget {
     required this.textColor,
     required this.btnHeight,
     required this.btnWidth,
+    required this.borderColor,
   });
 
   @override
@@ -26,7 +28,7 @@ class UltButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: bgColor,
-            border: Border.all(width: borderWidth),
+            border: Border.all(width: borderWidth, color: borderColor),
             borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
         height: btnHeight,
         width: btnWidth,
