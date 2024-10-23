@@ -16,7 +16,7 @@ class StartScreen extends StatelessWidget {
           ),
           Positioned(
             bottom: 150,
-            right: 65,
+            right: 90,
             child: Column(children: [
               SignInRow(
                 width: 1,
@@ -36,7 +36,16 @@ class StartScreen extends StatelessWidget {
                 ),
               ]),
               SizedBox(height: 10),
-              UltButton(),
+              UltButton(
+                btnHeight: 35,
+                btnWidth: 200,
+                bgColor: Colors.transparent,
+                borderRadius: 10,
+                borderWidth: 1,
+                text: 'Registry',
+                textColor: Colors.white70,
+                borderColor: Colors.white70,
+              ),
             ]),
           ),
         ]),
