@@ -22,13 +22,16 @@ class _SignInScreenState extends State<SignInScreen> {
             fit: BoxFit.cover,
           ),
           Positioned(
-            child: Text(
-              'Create an Account',
-              style: TextStyle(
-                fontSize: 55,
-              ),
-            ),
             top: 100,
+            child: SizedBox(
+              width: 250,
+              height: 100,
+              child: (Expanded(
+                  child: Text('Create an Account!',
+                      style: TextStyle(
+                        fontSize: 35,
+                      )))),
+            ),
           ),
         ]),
       ),
