@@ -34,7 +34,7 @@ class VeriScreen extends StatelessWidget {
                         )),
                   ])),
           Positioned(
-              bottom: 60,
+              bottom: 200,
               left: 120,
               child: UltButton(
                   bgColor: Colors.white54,
