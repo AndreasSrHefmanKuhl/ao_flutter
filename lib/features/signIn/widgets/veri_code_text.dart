@@ -12,7 +12,7 @@ class VeriCodeText extends StatelessWidget {
       height: 250,
       width: 380,
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -20,7 +20,7 @@ class VeriCodeText extends StatelessWidget {
               Text(
                 'Verification Code',
                 style: TextStyle(
-                    fontSize: headlineTextSizeAlt, fontWeight: FontWeight.bold),
+                    fontSize: headlineTextSize, fontWeight: FontWeight.bold),
               ),
               Text('we have sended the Link to your Email account',
                   style: TextStyle(

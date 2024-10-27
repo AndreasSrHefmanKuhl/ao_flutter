@@ -25,7 +25,7 @@ class VeriScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Positioned(
-            top: 155,
+            top: 140,
             left: 8,
             child: Expanded(
               child: VeriCodeText(),

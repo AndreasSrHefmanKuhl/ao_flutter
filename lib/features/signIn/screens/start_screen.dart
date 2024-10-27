@@ -5,6 +5,10 @@ import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
 import 'package:ao/config/themes.dart';
 
+void main(List<String> args) {
+  runApp(const StartScreen());
+}
+
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
 
@@ -14,7 +18,7 @@ class StartScreen extends StatelessWidget {
       theme: lightTheme,
       home: const Scaffold(
         body: Stack(fit: StackFit.expand, children: [
-          const Image(
+          Image(
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
@@ -22,13 +26,13 @@ class StartScreen extends StatelessWidget {
             bottom: 150,
             right: 90,
             child: Column(children: [
-              const SignInRow(
+              SignInRow(
                 width: btnBorderWidth,
                 radius: btnBorderRadius,
                 color: borderWhite,
               ),
               minVerticalSpace,
-              const Row(children: [
+              Row(children: [
                 Divider(
                   height: 2,
                   thickness: 10,
@@ -40,7 +44,7 @@ class StartScreen extends StatelessWidget {
                 ),
               ]),
               minVerticalSpace,
-              const UltButton(
+              UltButton(
                 btnHeight: btnHeight,
                 btnWidth: btnWidth,
                 bgColor: bgColor,
