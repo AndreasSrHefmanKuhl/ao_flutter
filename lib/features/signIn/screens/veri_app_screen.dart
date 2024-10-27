@@ -1,3 +1,6 @@
+import 'package:ao/config/colors.dart';
+import 'package:ao/config/sizes.dart';
+import 'package:ao/config/themes.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +13,9 @@ class VeriScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
+    return MaterialApp(
+      theme: lightTheme,
+      home: const Scaffold(
         body: Stack(fit: StackFit.expand, children: [
           Image(
             image: AssetImage('assets/images/background.png'),
@@ -37,14 +41,14 @@ class VeriScreen extends StatelessWidget {
               bottom: 200,
               left: 120,
               child: UltButton(
-                  bgColor: Colors.white54,
-                  borderWidth: 1,
-                  borderRadius: 12,
+                  bgColor: borderWhite,
+                  borderWidth: btnBorderWidth,
+                  borderRadius: btnBorderRadius,
                   text: 'Main Menu',
-                  textColor: Colors.black54,
-                  btnHeight: 50,
-                  btnWidth: 150,
-                  borderColor: Colors.black54)),
+                  textColor: borderBlack,
+                  btnHeight: btnHeightAlt,
+                  btnWidth: btnWidthAlt,
+                  borderColor: borderBlack)),
         ]),
       ),
     );
