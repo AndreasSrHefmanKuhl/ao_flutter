@@ -1,5 +1,9 @@
+import 'package:ao/config/colors.dart';
+import 'package:ao/config/sizes.dart';
+import 'package:ao/config/themes.dart';
 import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
+import 'package:ao/features/signIn/widgets/veri_code_text.dart';
 import 'package:ao/features/signIn/widgets/veri_row.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +16,9 @@ class VeriScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
+    return MaterialApp(
+      theme: lightTheme,
+      home: const Scaffold(
         body: Stack(fit: StackFit.expand, children: [
           Image(
             image: AssetImage('assets/images/background.png'),
@@ -23,26 +28,7 @@ class VeriScreen extends StatelessWidget {
             top: 155,
             left: 8,
             child: Expanded(
-              child: SizedBox(
-                height: 250,
-                width: 380,
-                child: Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Verification Code',
-                          style: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.bold),
-                        ),
-                        Text('we have sended the Link to your Email account',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.bold)),
-                      ]),
-                ),
-              ),
+              child: VeriCodeText(),
             ),
           ),
           Positioned(
@@ -50,30 +36,30 @@ class VeriScreen extends StatelessWidget {
             bottom: 450,
             child: VeriRow(),
           ),
-          SizedBox(height: 50),
+          mediumVerticalSpace,
           Positioned(
               left: 125,
               bottom: 300,
               child: UltButton(
-                  bgColor: Color.fromARGB(183, 253, 253, 253),
-                  borderWidth: 2,
-                  borderRadius: 12,
+                  bgColor: bgColor,
+                  borderWidth: btnBorderWidth,
+                  borderRadius: btnBorderRadius,
                   text: 'Submit',
-                  textColor: Colors.black54,
-                  btnHeight: 50,
-                  btnWidth: 150,
-                  borderColor: Colors.black54)),
+                  textColor: borderBlack,
+                  btnHeight: btnHeightAlt,
+                  btnWidth: btnWidthAlt,
+                  borderColor: borderBlack)),
           Positioned(
               bottom: 150,
               left: 100,
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Text('or'),
-                SizedBox(height: 10),
+                minVerticalSpace,
                 SignInRow(
-                  width: 2,
-                  radius: 12,
-                  color: Colors.black54,
+                  width: btnBorderWidth,
+                  radius: btnBorderRadius,
+                  color: borderBlack,
                 ),
               ])),
         ]),
