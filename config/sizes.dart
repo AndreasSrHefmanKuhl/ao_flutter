@@ -4,6 +4,7 @@ const double signInWidth = 1;
 const double signInRadius = 12;
 
 const double headlineTextSize = 38;
+const double defaultTextSize = 12;
 const double signInContainerHeight = 60;
 const double signInContainerWidth = 60;
 
