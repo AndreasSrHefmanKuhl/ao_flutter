@@ -30,7 +30,8 @@ class VeriScreen extends StatelessWidget {
                   children: [
                     Text('Welcome!',
                         style: TextStyle(
-                            fontSize: 65, fontWeight: FontWeight.bold)),
+                            fontSize: headlineTextSizeAlt,
+                            fontWeight: FontWeight.bold)),
                     Text('U have been successfully registered!',
                         style: TextStyle(
                           fontSize: 18,
@@ -41,7 +42,7 @@ class VeriScreen extends StatelessWidget {
               bottom: 200,
               left: 120,
               child: UltButton(
-                  bgColor: borderWhite,
+                  bgColor: bgColor,
                   borderWidth: btnBorderWidth,
                   borderRadius: btnBorderRadius,
                   text: 'Main Menu',
