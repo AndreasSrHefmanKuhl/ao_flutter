@@ -1,3 +1,7 @@
+import 'package:ao/config/colors.dart';
+import 'package:ao/config/sizes.dart';
+import 'package:ao/config/themes.dart';
+import 'package:ao/features/signIn/widgets/input_field.dart';
 import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +20,9 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
+    return MaterialApp(
+      theme: lightTheme,
+      home: const Scaffold(
         body: Stack(fit: StackFit.expand, children: [
           Image(
             image: AssetImage('assets/images/background.png'),
@@ -32,7 +37,7 @@ class _SignInScreenState extends State<SignInScreen> {
               child: (Expanded(
                   child: Text('Create an Account!',
                       style: TextStyle(
-                        fontSize: 35,
+                        fontSize: headlineTextSize,
                       )))),
             ),
           ),
@@ -43,34 +48,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(
-                        width: 350,
-                        height: 25,
-                        child: TextField(
-                          style: TextStyle(fontSize: 20),
-                          textAlign: TextAlign.start,
-                          decoration: InputDecoration(helperText: 'Name'),
-                        )),
-                    SizedBox(height: 30),
-                    SizedBox(
-                        width: 350,
-                        height: 25,
-                        child: TextField(
-                          style: TextStyle(fontSize: 20),
-                          textAlign: TextAlign.start,
-                          decoration: InputDecoration(helperText: 'Password'),
-                        )),
-                    SizedBox(height: 30),
-                    SizedBox(
-                        width: 350,
-                        height: 25,
-                        child: TextField(
-                          style: TextStyle(fontSize: 20),
-                          textAlign: TextAlign.start,
-                          decoration:
-                              InputDecoration(helperText: 'Email adress'),
-                        )),
-                    SizedBox(height: 60),
+                    InputField(text: "Name"),
+                    smallVerticalSpace,
+                    InputField(text: "Password"),
+                    smallVerticalSpace,
+                    InputField(text: "Email Adress"),
+                    mediumVerticalSpace,
                     UltButton(
                         bgColor: Color.fromARGB(156, 255, 255, 255),
                         borderWidth: 1,
@@ -80,7 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         btnHeight: 40,
                         btnWidth: 150,
                         borderColor: Colors.black87),
-                    SizedBox(height: 65),
+                    mediumVerticalSpace,
                     Row(children: [
                       Divider(
                         height: 2,
@@ -92,8 +75,11 @@ class _SignInScreenState extends State<SignInScreen> {
                         thickness: 10,
                       ),
                     ]),
-                    SizedBox(height: 15),
-                    SignInRow(width: 3, radius: 12, color: Colors.black87),
+                    minVerticalSpace,
+                    SignInRow(
+                        width: btnBorderWidth,
+                        radius: btnBorderRadius,
+                        color: borderBlack),
                   ],
                 ),
               )),
