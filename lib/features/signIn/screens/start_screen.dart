@@ -1,16 +1,21 @@
+import 'package:ao/config/colors.dart';
+import 'package:ao/config/sizes.dart';
 import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ao/config/themes.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
+    return MaterialApp(
+      theme: lightTheme,
+      home: const Scaffold(
         body: Stack(fit: StackFit.expand, children: [
-          Image(
+          const Image(
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
@@ -18,13 +23,13 @@ class StartScreen extends StatelessWidget {
             bottom: 150,
             right: 90,
             child: Column(children: [
-              SignInRow(
-                width: 1,
-                radius: 12,
-                color: Colors.white70,
+              const SignInRow(
+                width: btnBorderWidth,
+                radius: btnBorderRadius,
+                color: borderWhite,
               ),
-              SizedBox(height: 10),
-              Row(children: [
+              minVerticalSpace,
+              const Row(children: [
                 Divider(
                   height: 2,
                   thickness: 10,
@@ -35,16 +40,16 @@ class StartScreen extends StatelessWidget {
                   thickness: 10,
                 ),
               ]),
-              SizedBox(height: 10),
-              UltButton(
-                btnHeight: 35,
-                btnWidth: 200,
-                bgColor: Colors.transparent,
-                borderRadius: 10,
-                borderWidth: 1,
+              minVerticalSpace,
+              const UltButton(
+                btnHeight: btnHeight,
+                btnWidth: btnWidth,
+                bgColor: bgColor,
+                borderRadius: btnBorderRadius,
+                borderWidth: btnBorderWidth,
                 text: 'Registry',
-                textColor: Colors.white70,
-                borderColor: Colors.white70,
+                textColor: borderWhite,
+                borderColor: borderWhite,
               ),
             ]),
           ),
