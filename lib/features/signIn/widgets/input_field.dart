@@ -11,7 +11,7 @@ class InputField extends StatelessWidget {
         width: 350,
         height: 25,
         child: TextField(
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
           textAlign: TextAlign.start,
           decoration: InputDecoration(helperText: text),
         ));

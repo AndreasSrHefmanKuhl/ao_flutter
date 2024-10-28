@@ -1,5 +1,6 @@
 import 'package:ao/config/colors.dart';
 import 'package:ao/config/sizes.dart';
+import 'package:ao/features/signIn/screens/veri_screen.dart';
 import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
@@ -44,20 +45,34 @@ class StartScreen extends StatelessWidget {
                 ),
               ]),
               minVerticalSpace,
-              UltButton(
-                btnHeight: btnHeight,
-                btnWidth: btnWidth,
-                bgColor: bgColor,
-                borderRadius: btnBorderRadius,
-                borderWidth: btnBorderWidth,
-                text: 'Registry',
-                textColor: borderWhite,
-                borderColor: borderWhite,
-              ),
+              GButton(),
             ]),
           ),
         ]),
       ),
     );
+  }
+}
+
+class GButton extends StatelessWidget {
+  const GButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () =>
+            MaterialPageRoute(builder: (context) => const VeriScreen()),
+        child: const UltButton(
+          btnHeight: btnHeight,
+          btnWidth: btnWidth,
+          bgColor: bgColor,
+          borderRadius: btnBorderRadius,
+          borderWidth: btnBorderWidth,
+          text: 'Registry',
+          textColor: borderWhite,
+          borderColor: borderWhite,
+        ));
   }
 }

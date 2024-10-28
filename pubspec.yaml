@@ -2,10 +2,11 @@ name: ao
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
-flutter_launcher_icons:
-    android: true
-    ios: true
-    image_path: assets/icons/icon.png 
+
+
+
+
+
 
 
 environment:
@@ -14,6 +15,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  curved_carousel: ^0.0.8
  
   
 dev_dependencies:
@@ -21,6 +23,12 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^4.0.0
   
+  flutter_launcher_icons:
+    android: true
+    ios: true
+    image_path: assets/icons/icon.png
+
+
 
 flutter:
   uses-material-design: true
