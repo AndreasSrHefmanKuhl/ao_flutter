@@ -60,8 +60,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         borderRadius: 12,
                         text: 'Create Account',
                         textColor: Colors.black87,
-                        btnHeight: 40,
-                        btnWidth: 150,
+                        btnHeight: btnHeightAlt,
+                        btnWidth: btnWidthAlt,
                         borderColor: Colors.black87),
                     mediumVerticalSpace,
                     Row(children: [
