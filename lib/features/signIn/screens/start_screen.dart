@@ -1,7 +1,7 @@
 import 'package:ao/config/colors.dart';
 import 'package:ao/config/sizes.dart';
 import 'package:ao/features/signIn/screens/veri_screen.dart';
-import 'package:ao/features/signIn/widgets/sign_in_row.dart';
+
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
 import 'package:ao/config/themes.dart';
@@ -23,15 +23,15 @@ class StartScreen extends StatelessWidget {
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
-          Positioned(
+          Positioned(TextFormField
             bottom: 150,
             right: 90,
-            child: Column(children: [
-              SignInRow(
+            child: Column(children: [TextFormField
+             /* SignInRow(
                 width: btnBorderWidth,
                 radius: btnBorderRadius,
                 color: borderWhite,
-              ),
+             ),*/
               minVerticalSpace,
               Row(children: [
                 Divider(
@@ -62,8 +62,8 @@ class GButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () =>
-            MaterialPageRoute(builder: (context) => const VeriScreen()),
+        onTap: () => MaterialPageRoute(
+            builder: (BuildContext context) => const VeriScreen()),
         child: const UltButton(
           btnHeight: btnHeight,
           btnWidth: btnWidth,
