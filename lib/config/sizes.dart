@@ -13,10 +13,14 @@ const double signInContainerWidth = 60;
 const double minDistance = 10;
 const double smallDistance = 30;
 const double medDistance = 60;
+const double bigDistance = 60 * 2;
 
 const minVerticalSpace = SizedBox(height: minDistance);
 const smallVerticalSpace = SizedBox(height: smallDistance);
 const mediumVerticalSpace = SizedBox(height: medDistance);
+const bigVerticalSpacing = SizedBox(
+  height: bigDistance,
+);
 
 const double btnHeightAlt = 50;
 const double btnWidthAlt = 150;

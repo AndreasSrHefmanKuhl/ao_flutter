@@ -1,3 +1,4 @@
+import 'package:ao/config/sizes.dart';
 import 'package:flutter/material.dart';
 
 class SignInRow extends StatelessWidget {
@@ -18,24 +19,24 @@ class SignInRow extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(width: width, color: color),
               borderRadius: BorderRadius.all(Radius.circular(radius))),
-          height: 60,
-          width: 60,
+          height: 2 * smallDistance,
+          width: 2 * smallDistance,
           child: Icon(Icons.android_rounded, color: color)),
-      const SizedBox(width: 10),
+      smallVerticalSpace,
       Container(
           decoration: BoxDecoration(
               border: Border.all(width: width, color: color),
               borderRadius: BorderRadius.all(Radius.circular(radius))),
-          height: 60,
-          width: 60,
+          height: 2 * smallDistance,
+          width: 2 * smallDistance,
           child: Icon(Icons.insert_emoticon, color: color)),
-      const SizedBox(width: 10),
+      smallVerticalSpace,
       Container(
           decoration: BoxDecoration(
               border: Border.all(width: width, color: color),
               borderRadius: BorderRadius.all(Radius.circular(radius))),
-          height: 60,
-          width: 60,
+          height: 2 * smallDistance,
+          width: 2 * smallDistance,
           child: Icon(Icons.apple, color: color)),
     ]);
   }

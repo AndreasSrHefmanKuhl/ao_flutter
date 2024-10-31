@@ -1,6 +1,7 @@
 import 'package:ao/config/colors.dart';
 import 'package:ao/config/sizes.dart';
 import 'package:ao/features/signIn/screens/veri_screen.dart';
+import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
@@ -23,15 +24,15 @@ class StartScreen extends StatelessWidget {
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
-          Positioned(TextFormField
-            bottom: 150,
-            right: 90,
-            child: Column(children: [TextFormField
-             /* SignInRow(
+          Positioned(
+            bottom: bigDistance,
+            right: (3 * smallDistance),
+            child: Column(children: [
+              SignInRow(
                 width: btnBorderWidth,
                 radius: btnBorderRadius,
                 color: borderWhite,
-             ),*/
+              ),
               minVerticalSpace,
               Row(children: [
                 Divider(
