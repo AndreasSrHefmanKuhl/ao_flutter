@@ -11,14 +11,17 @@ class MenuIcon extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          border: Border.all(width: 2),
+          border: Border.all(
+            width: 2,
+            color: const Color.fromARGB(255, 195, 245, 255),
+          ),
           borderRadius: const BorderRadius.all(Radius.circular(14))),
       height: 200,
       width: 180,
       child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Expanded(flex: 1, child: icon)]),
+          children: [Expanded(child: icon)]),
     );
   }
 }

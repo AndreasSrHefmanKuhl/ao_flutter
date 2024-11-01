@@ -1,6 +1,8 @@
 import 'package:ao/config/sizes.dart';
 import 'package:ao/config/themes.dart';
 import 'package:ao/features/main_menu/widgets/menu_icon.dart';
+import 'package:ao/features/main_menu/widgets/menu_slider.dart';
+import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 
@@ -38,7 +40,7 @@ class _MyMainMenuState extends State<MyMainMenu> {
           ),
           Positioned(
             top: 50,
-            left: 0,
+            left: 100,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -51,40 +53,9 @@ class _MyMainMenuState extends State<MyMainMenu> {
                   ),
                   SizedBox(height: 3.2 * bigDistance),
                   SizedBox(
-                    height: 200,
-                    width: 400,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.all(6.0),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            MenuIcon(
-                                icon: Icon(
-                                  color: Color.fromARGB(255, 195, 245, 255),
-                                  Icons.speaker_group_outlined,
-                                  size: bigDistance,
-                                ),
-                                text: 'Hier gehts zum Chat'),
-                            SizedBox(width: smallDistance),
-                            MenuIcon(
-                                icon: Icon(
-                                  color: Color.fromARGB(255, 195, 245, 255),
-                                  Icons.person_2,
-                                  size: bigDistance,
-                                ),
-                                text: 'Hier kannst du dein Profil bearbeiten'),
-                            SizedBox(width: smallDistance),
-                            MenuIcon(
-                                icon: Icon(
-                                  color: Color.fromARGB(255, 195, 245, 255),
-                                  Icons.speaker_group_outlined,
-                                  size: bigDistance,
-                                ),
-                                text: 'Hier gelangst du ins Forum'),
-                            SizedBox(width: smallDistance),
-                          ]),
-                    ),
+                    height: 150,
+                    width: 190,
+                    child: MenuSlider(),
                   ),
                 ]),
           ),
