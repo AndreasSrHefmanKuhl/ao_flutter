@@ -14,48 +14,45 @@ class VeriAppScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: lightTheme,
-      home: Scaffold(
-        body: Stack(fit: StackFit.expand, children: [
-          const Image(
-            image: AssetImage('assets/images/background.png'),
-            fit: BoxFit.cover,
-          ),
-          const Positioned(
-              top: 150,
-              left: 22,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Welcome!',
-                        style: TextStyle(
-                            fontSize: headlineTextSizeAlt,
-                            fontWeight: FontWeight.bold)),
-                    Text('U have been successfully registered!',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        )),
-                  ])),
-          Positioned(
-              bottom: 200,
-              left: 120,
-              child: GestureDetector(
-                  onTap: () => MaterialPageRoute(
-                      builder: (context) => const MyMainMenu()),
-                  child: const UltButton(
-                      bgColor: bgColor,
-                      borderWidth: btnBorderWidth,
-                      borderRadius: btnBorderRadius,
-                      text: 'Main Menu',
-                      textColor: borderBlack,
-                      btnHeight: btnHeightAlt,
-                      btnWidth: btnWidthAlt,
-                      borderColor: borderBlack))),
-        ]),
-      ),
+    return Scaffold(
+      body: Stack(fit: StackFit.expand, children: [
+        const Image(
+          image: AssetImage('assets/images/background.png'),
+          fit: BoxFit.cover,
+        ),
+        const Positioned(
+            top: 150,
+            left: 22,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Welcome!',
+                      style: TextStyle(
+                          fontSize: headlineTextSizeAlt,
+                          fontWeight: FontWeight.bold)),
+                  Text('U have been successfully registered!',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      )),
+                ])),
+        Positioned(
+            bottom: 200,
+            left: 120,
+            child: GestureDetector(
+                onTap: () =>
+                    MaterialPageRoute(builder: (context) => const MyMainMenu()),
+                child: const UltButton(
+                    bgColor: bgColor,
+                    borderWidth: btnBorderWidth,
+                    borderRadius: btnBorderRadius,
+                    text: 'Main Menu',
+                    textColor: borderBlack,
+                    btnHeight: btnHeightAlt,
+                    btnWidth: btnWidthAlt,
+                    borderColor: borderBlack))),
+      ]),
     );
   }
 }

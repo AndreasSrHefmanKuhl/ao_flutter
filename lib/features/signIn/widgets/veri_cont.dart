@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:ao/config/sizes.dart';
 import 'package:flutter/material.dart';
 
 class VeriCont extends StatelessWidget {
@@ -13,12 +14,12 @@ class VeriCont extends StatelessWidget {
       width: 65,
       decoration: BoxDecoration(
           color: Colors.white38,
-          border: Border.all(width: 1),
+          border: Border.all(width: btnBorderRadius),
           borderRadius: const BorderRadius.all(Radius.circular(10))),
       child: const TextField(
         cursorHeight: 60,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 60),
+        style: TextStyle(fontSize: headlineTextSize),
         selectionHeightStyle: BoxHeightStyle.max,
         selectionWidthStyle: BoxWidthStyle.max,
       ),
