@@ -21,6 +21,9 @@ const mediumVerticalSpace = SizedBox(height: medDistance);
 const bigVerticalSpacing = SizedBox(
   height: bigDistance,
 );
+const veryBigVerticalSpacing = SizedBox(
+  height: 2 * bigDistance,
+);
 
 const double btnHeightAlt = 50;
 const double btnWidthAlt = 150;
