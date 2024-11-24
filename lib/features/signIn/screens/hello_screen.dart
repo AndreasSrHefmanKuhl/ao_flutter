@@ -35,8 +35,9 @@ class _HelloScreenState extends State<HelloScreen> {
   }
 
   String? confirmPassword(String? value) {
-    if (myConfirmController.value != myPasswordController.text)
+    if (myConfirmController.value != myPasswordController.text) {
       return ('HIER STIMMT WAS NICHT!');
+    }
 
     return null;
   }

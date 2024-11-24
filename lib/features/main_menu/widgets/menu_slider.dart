@@ -14,31 +14,54 @@ class MenuSlider extends StatelessWidget {
       physics: ScrollPhysics(parent: BouncingScrollPhysics()),
       dragStartBehavior: DragStartBehavior.start,
       scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.all(6.0),
+      padding: EdgeInsets.all(4.0),
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Padding(
+          padding: EdgeInsets.all(6.0),
+          child: SizedBox(
+            child: Expanded(
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+                MenuIcon(
+                    icon: Icon(
+                  color: Color.fromARGB(255, 195, 245, 255),
+                  Icons.phone_in_talk_outlined,
+                  size: 4 * smallDistance,
+                )),
+                Text('Hier gehts zum Chat'),
+              ]),
+            ),
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.all(6.0),
+          child: SizedBox(
+            child: Expanded(
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+                MenuIcon(
+                    icon: Icon(
+                  color: Color.fromARGB(255, 195, 245, 255),
+                  Icons.person,
+                  size: 4 * smallDistance,
+                )),
+                Text(
+                  'Hier gehts zum Profil',
+                  strutStyle: StrutStyle(),
+                ),
+              ]),
+            ),
+          ),
+        ),
+        // text: 'Hier kannst du dein Profil bearbeiten'),
+
         MenuIcon(
             icon: Icon(
-              color: Color.fromARGB(255, 195, 245, 255),
-              Icons.speaker_group_outlined,
-              size: bigDistance,
-            ),
-            text: 'Hier gehts zum Chat'),
-        SizedBox(width: smallDistance),
-        MenuIcon(
-            icon: Icon(
-              color: Color.fromARGB(255, 195, 245, 255),
-              Icons.person_2,
-              size: bigDistance,
-            ),
-            text: 'Hier kannst du dein Profil bearbeiten'),
-        SizedBox(width: smallDistance),
-        MenuIcon(
-            icon: Icon(
-              color: Color.fromARGB(255, 195, 245, 255),
-              Icons.speaker_group_outlined,
-              size: bigDistance,
-            ),
-            text: 'Hier gelangst du ins Forum'),
+          color: Color.fromARGB(255, 195, 245, 255),
+          Icons.speaker_group_outlined,
+          size: bigDistance,
+        )),
       ]),
     );
   }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MenuIcon extends StatelessWidget {
-  final String text;
   final Icon icon;
 
-  const MenuIcon({super.key, required this.text, required this.icon});
+  const MenuIcon({super.key, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +15,9 @@ class MenuIcon extends StatelessWidget {
             color: const Color.fromARGB(255, 195, 245, 255),
           ),
           borderRadius: const BorderRadius.all(Radius.circular(14))),
-      height: 200,
-      width: 180,
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Expanded(child: icon)]),
+      height: 110,
+      width: 80,
+      child: Expanded(child: icon),
     );
   }
 }

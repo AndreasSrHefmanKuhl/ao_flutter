@@ -1,6 +1,5 @@
 import 'package:ao/config/colors.dart';
 import 'package:ao/config/sizes.dart';
-import 'package:ao/config/themes.dart';
 import 'package:ao/features/main_menu/screens/main_screen.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';

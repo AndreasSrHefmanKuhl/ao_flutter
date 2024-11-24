@@ -2,7 +2,6 @@ import 'package:ao/config/sizes.dart';
 import 'package:ao/config/themes.dart';
 import 'package:ao/features/main_menu/widgets/menu_icon.dart';
 import 'package:ao/features/main_menu/widgets/menu_slider.dart';
-import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 
@@ -19,12 +18,9 @@ class MyMainMenu extends StatefulWidget {
 
 class _MyMainMenuState extends State<MyMainMenu> {
   final List<MenuIcon> _icons = const [
-    MenuIcon(
-        text: 'Hier gehts zum Chat', icon: Icon(Icons.speaker_group_outlined)),
-    MenuIcon(text: 'Hier gehts zum Profil', icon: Icon(Icons.person_2)),
-    MenuIcon(
-        text: 'Hier gelangt man ins Forum',
-        icon: Icon(Icons.person_search_outlined))
+    MenuIcon(icon: Icon(Icons.speaker_group_outlined)),
+    MenuIcon(icon: Icon(Icons.person_2)),
+    MenuIcon(icon: Icon(Icons.person_search_outlined))
   ];
 
   @override
@@ -52,10 +48,13 @@ class _MyMainMenuState extends State<MyMainMenu> {
                         fontStyle: FontStyle.italic),
                   ),
                   SizedBox(height: 3.2 * bigDistance),
-                  SizedBox(
-                    height: 150,
-                    width: 190,
-                    child: MenuSlider(),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      height: 180,
+                      width: 180,
+                      child: MenuSlider(),
+                    ),
                   ),
                 ]),
           ),
