@@ -10,4 +10,6 @@ class User {
     required this.email,
     required this.userId,
   });
+
+  Object get id => null;
 }

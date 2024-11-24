@@ -12,7 +12,7 @@ class UserDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Benutzerdetails')),
+      appBar: AppBar(title: const Text('Benutzerdetails')),
       body: FutureBuilder<User>(
         future: repository.showUser(User(
             name: 'Andi',
@@ -21,7 +21,7 @@ class UserDetailsScreen extends StatelessWidget {
             userId: userId)),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           } else if (snapshot.hasError) {
             return Text('Fehler beim Laden des Benutzers: ${snapshot.error}');
           } else {

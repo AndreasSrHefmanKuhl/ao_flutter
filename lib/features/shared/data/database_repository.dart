@@ -8,6 +8,8 @@ abstract class DatabaseRepository {
 
   Future registerUser(User user);
 
+  Future<User> showUser(User user);
+
   Future<bool> deleteUser(String userId);
 
   Future<bool> isLoggedIn(String username, String password);

@@ -9,6 +9,7 @@ class UltButton extends StatelessWidget {
   final double btnHeight;
   final double btnWidth;
   final Color borderColor;
+  final Function onpressed;
 
   const UltButton({
     super.key,
@@ -20,6 +21,7 @@ class UltButton extends StatelessWidget {
     required this.btnHeight,
     required this.btnWidth,
     required this.borderColor,
+    required this.onpressed,
   });
 
   @override

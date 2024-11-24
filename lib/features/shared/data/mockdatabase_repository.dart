@@ -70,4 +70,16 @@ class MockDatabaseRepository implements DatabaseRepository {
       id: '',
     ));
   }
+
+  @override
+  Future<User> showUser(User user) async {
+    await Future.delayed(Duration(seconds: 2));
+
+    final index = _users.indexWhere((u) => u.id == user.id);
+    if (index != -1) {
+      return _users[index]; // Return the user from the mock data
+    } else {
+      throw Exception('User not found'); // Throw an exception if not found
+    }
+  }
 }

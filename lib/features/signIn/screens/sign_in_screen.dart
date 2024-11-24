@@ -55,6 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     InputField(text: "Email Adress"),
                     mediumVerticalSpace,
                     UltButton(
+                        onpressed: Navigator.push(context, MaterialPageRoute()),
                         bgColor: Color.fromARGB(156, 255, 255, 255),
                         borderWidth: 1,
                         borderRadius: 12,
