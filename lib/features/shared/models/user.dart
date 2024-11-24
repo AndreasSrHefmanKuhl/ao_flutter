@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class User extends StatelessWidget {
+class User extends StatelessWidget {
   final String name;
   final String password;
   final String email;
@@ -13,4 +13,10 @@ abstract class User extends StatelessWidget {
     required this.email,
     required this.id,
   });
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
 }
