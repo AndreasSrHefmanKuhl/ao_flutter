@@ -66,7 +66,7 @@ class _MyLogState extends State<MyLog> {
                         myUserNameController.text == userInput
                     ? Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const HelloScreen()))
-                    : print("netter Versuch");
+                    : throw ("netter Versuch");
 
                 /*setState(() {
                     _messages.add(myUserNameController.text);

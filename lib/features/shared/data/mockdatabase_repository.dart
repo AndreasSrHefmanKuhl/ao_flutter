@@ -39,6 +39,7 @@ class MockDatabaseRepository implements DatabaseRepository {
   Future<String> sendMessage(Message currentMessage) async {
     await Future.delayed(Duration(seconds: 1));
     _messages.add(currentMessage);
+    return ('Nachricht wurder versendet');
   }
 
   @override
@@ -77,9 +78,9 @@ class MockDatabaseRepository implements DatabaseRepository {
 
     final index = _users.indexWhere((u) => u.id == user.id);
     if (index != -1) {
-      return _users[index]; // Return the user from the mock data
+      return _users[index];
     } else {
-      throw Exception('User not found'); // Throw an exception if not found
+      throw Exception('User not found');
     }
   }
 }

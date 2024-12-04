@@ -3,11 +3,24 @@ import 'package:ao/features/main_menu/widgets/menu_icon.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class MenuSlider extends StatelessWidget {
+class MenuSlider extends StatefulWidget {
+  // ignore: unused_field
+  final MenuIcon icon;
   const MenuSlider({
-    super.key,
+    super.key, required this.icon,
+    
   });
 
+  @override
+  State<MenuSlider> createState() => _MenuSliderState();
+}
+
+class _MenuSliderState extends State<MenuSlider> {
+  static const List<MenuIcon> icons = [
+    MenuIcon(icon: Icon(Icons.speaker_group_outlined)),
+    MenuIcon(icon: Icon(Icons.person_2)),
+    MenuIcon(icon: Icon(Icons.person_search_outlined))
+  ];
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
@@ -22,8 +35,7 @@ class MenuSlider extends StatelessWidget {
             child: Expanded(
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                MenuIcon(
-                    icon: Icon(
+                MenuIcon(icon: icons[],(
                   color: Color.fromARGB(255, 195, 245, 255),
                   Icons.phone_in_talk_outlined,
                   size: 4 * smallDistance,
