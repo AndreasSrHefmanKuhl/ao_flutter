@@ -1,7 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -30,7 +29,6 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Future<void> _sendMessage() async {
-    final chat = model.startChat();
     final prompt = _textController.text;
     _textController.clear();
 
