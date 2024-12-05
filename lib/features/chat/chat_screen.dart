@@ -1,11 +1,21 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:ao/config/keys.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const ChatScreen());
+Future<void> runBot() async {
+  //API Zugang machbar machen durch einbinden environment
+  final apiKey = Platform.environment['API_KEY'];
+  if (apiKey == null) {
+    print('No \$API_KEY environment variable');
+    exit(1);
+  }
+  // aufruf von ki in  variable , sprich Obejekterzeugung zur MethodenNutzung
+  final model = GenerativeModel(
+      model: 'gemini-1.5-flash',
+      apiKey: apiKey,
+      generationConfig: GenerationConfig(maxOutputTokens: 100));
 }
 
 class ChatScreen extends StatefulWidget {
@@ -16,6 +26,20 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  Future<void> runBot() async {
+    //API Zugang machbar machen durch einbinden environment
+    final apiKey = Platform.environment['MEY_NAME'];
+    if (apiKey == null) {
+      print('No \$MEY_NAME environment variable');
+      exit(1);
+    }
+    // aufruf von ki in  variable , sprich Obejekterzeugung zur MethodenNutzung
+    final model = GenerativeModel(
+        model: 'gemini-1.5-flash',
+        apiKey: apiKey,
+        generationConfig: GenerationConfig(maxOutputTokens: 100));
+  }
+
   final TextEditingController _textController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [];
 
@@ -27,7 +51,7 @@ class _ChatScreenState extends State<ChatScreen> {
       _messages.add({'role': 'user', 'content': prompt});
     });
 
-    final response = await callGemini(prompt);
+    final response = await model(prompt);
 
     setState(() {
       _messages.add({'role': 'assistant', 'content': response});
