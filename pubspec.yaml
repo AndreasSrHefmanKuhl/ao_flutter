@@ -10,8 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   curved_carousel: ^0.0.8
-  gemini_ai_chat: ^0.0.5
-  gemini_flutter: ^0.1.1
+  
   http: ^1.2.2
  
   

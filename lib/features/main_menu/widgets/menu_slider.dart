@@ -3,10 +3,13 @@ import 'package:ao/features/main_menu/widgets/menu_icon.dart';
 import 'package:flutter/material.dart';
 
 class MenuSlider extends StatefulWidget {
+  final dynamic;
+  final ElevatedButton button;
   // ignore: unused_field
 
   const MenuSlider({
     super.key,
+    required this.onPressed,
   });
 
   @override

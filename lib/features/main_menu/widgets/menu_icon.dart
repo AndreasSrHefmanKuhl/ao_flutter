@@ -10,7 +10,7 @@ class MenuIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
           border: Border.all(
             width: 2,
@@ -20,18 +20,21 @@ class MenuIcon extends StatelessWidget {
       height: 2 * bigDistance,
       width: bigDistance,
       child: Expanded(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-            Icon(
-              icon,
-              size: 60,
-            ),
-            Text(
-              text,
-              style: const TextStyle(fontStyle: FontStyle.italic),
-            )
-          ])),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Expanded(
+          child: Icon(
+            icon,
+            size: 65,
+          ),
+        ),
+        Text(
+          text,
+          style: const TextStyle(
+            fontStyle: FontStyle.italic,
+            fontSize: 8,
+          ),
+        )
+      ])),
     );
   }
 }
