@@ -54,7 +54,7 @@ class MockDatabaseRepository implements DatabaseRepository {
     return _messages;
   }
 
-  @override
+  /* @override
   Future<void> botFace() async {
     await Future.delayed(Duration(seconds: 1));
     print('Bot-Gesicht wird angezeigt');
@@ -70,7 +70,7 @@ class MockDatabaseRepository implements DatabaseRepository {
       content: 'Deine Nachricht wird verarbeitet...',
       id: '',
     ));
-  }
+  }*/
 
   @override
   Future<User> showUser(User user) async {

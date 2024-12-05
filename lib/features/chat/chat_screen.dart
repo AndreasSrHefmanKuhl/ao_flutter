@@ -4,20 +4,6 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
-Future<void> runBot() async {
-  //API Zugang machbar machen durch einbinden environment
-  final apiKey = Platform.environment['API_KEY'];
-  if (apiKey == null) {
-    print('No \$API_KEY environment variable');
-    exit(1);
-  }
-  // aufruf von ki in  variable , sprich Obejekterzeugung zur MethodenNutzung
-  final model = GenerativeModel(
-      model: 'gemini-1.5-flash',
-      apiKey: apiKey,
-      generationConfig: GenerationConfig(maxOutputTokens: 100));
-}
-
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -26,24 +12,25 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  Future<void> runBot() async {
-    //API Zugang machbar machen durch einbinden environment
+  final TextEditingController _textController = TextEditingController();
+  final List<Map<String, dynamic>> _messages = [];
+  late GenerativeModel model;
+
+  Future<void> startBot() async {
+    // API access setup
     final apiKey = Platform.environment['MEY_NAME'];
     if (apiKey == null) {
       print('No \$MEY_NAME environment variable');
       exit(1);
     }
-    // aufruf von ki in  variable , sprich Obejekterzeugung zur MethodenNutzung
-    final model = GenerativeModel(
-        model: 'gemini-1.5-flash',
-        apiKey: apiKey,
-        generationConfig: GenerationConfig(maxOutputTokens: 100));
+
+    // Create a GenerativeModel instance
+    final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: apiKey);
+    final chat = model.startChat();
   }
 
-  final TextEditingController _textController = TextEditingController();
-  final List<Map<String, dynamic>> _messages = [];
-
-  void _sendMessage() async {
+  Future<void> _sendMessage() async {
+    final chat = model.startChat();
     final prompt = _textController.text;
     _textController.clear();
 
@@ -51,18 +38,34 @@ class _ChatScreenState extends State<ChatScreen> {
       _messages.add({'role': 'user', 'content': prompt});
     });
 
-    final response = await model(prompt);
+    try {
+      final responses = await model.generateContent([Content.text(prompt)]);
 
-    setState(() {
-      _messages.add({'role': 'assistant', 'content': response});
-    });
+      setState(() {
+        _messages.add({'role': 'assistant', 'content': responses});
+      });
+    } catch (e) {
+      print('Error sending message: $e');
+      setState(() {
+        _messages.add({
+          'role': 'assistant',
+          'content': 'An error occurred. Please try again.'
+        });
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startBot();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat mit Gemini'),
+        title: const Text('Chat with Gemini'),
       ),
       body: Column(
         children: [
@@ -87,7 +90,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: TextField(
                     controller: _textController,
                     decoration:
-                        const InputDecoration(hintText: 'Nachricht senden'),
+                        const InputDecoration(hintText: 'Send a message'),
                   ),
                 ),
                 IconButton(
