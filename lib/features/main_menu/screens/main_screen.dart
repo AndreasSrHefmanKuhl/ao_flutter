@@ -1,6 +1,6 @@
 import 'package:ao/config/sizes.dart';
 import 'package:ao/config/themes.dart';
-import 'package:ao/features/main_menu/widgets/menu_icon.dart';
+
 import 'package:ao/features/main_menu/widgets/menu_slider.dart';
 
 import 'package:flutter/material.dart';
@@ -17,12 +17,6 @@ class MyMainMenu extends StatefulWidget {
 }
 
 class _MyMainMenuState extends State<MyMainMenu> {
-  final List<MenuIcon> _icons = const [
-    MenuIcon(icon: Icon(Icons.speaker_group_outlined)),
-    MenuIcon(icon: Icon(Icons.person_2)),
-    MenuIcon(icon: Icon(Icons.person_search_outlined))
-  ];
-
   @override
   Widget build(BuildContext context) {
     //final List<MenuIcon> icon = _icons;

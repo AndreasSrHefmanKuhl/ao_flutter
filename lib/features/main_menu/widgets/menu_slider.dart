@@ -1,14 +1,12 @@
-import 'package:ao/config/sizes.dart';
 import 'package:ao/features/main_menu/widgets/menu_icon.dart';
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 
 class MenuSlider extends StatefulWidget {
   // ignore: unused_field
-  final MenuIcon icon;
+
   const MenuSlider({
-    super.key, required this.icon,
-    
+    super.key,
   });
 
   @override
@@ -16,65 +14,32 @@ class MenuSlider extends StatefulWidget {
 }
 
 class _MenuSliderState extends State<MenuSlider> {
-  static const List<MenuIcon> icons = [
-    MenuIcon(icon: Icon(Icons.speaker_group_outlined)),
-    MenuIcon(icon: Icon(Icons.person_2)),
-    MenuIcon(icon: Icon(Icons.person_search_outlined))
+  static const List<MenuIcon> _icons = [
+    MenuIcon(
+      icon: (Icons.speaker_group_outlined),
+      text: 'Hier gehts zum Chat',
+    ),
+    MenuIcon(
+      icon: (Icons.person_2),
+      text: 'Hier gehts zum Profil',
+    ),
+    MenuIcon(
+        icon: (Icons.person_search_outlined),
+        text: 'hier kann man sich mit Freunden austauschen'),
   ];
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      physics: ScrollPhysics(parent: BouncingScrollPhysics()),
-      dragStartBehavior: DragStartBehavior.start,
-      scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.all(4.0),
-      child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Padding(
-          padding: EdgeInsets.all(6.0),
-          child: SizedBox(
-            child: Expanded(
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                MenuIcon(icon: icons[],(
-                  color: Color.fromARGB(255, 195, 245, 255),
-                  Icons.phone_in_talk_outlined,
-                  size: 4 * smallDistance,
-                )),
-                Text('Hier gehts zum Chat'),
-              ]),
-            ),
-          ),
-        ),
-
-        Padding(
-          padding: EdgeInsets.all(6.0),
-          child: SizedBox(
-            child: Expanded(
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                MenuIcon(
-                    icon: Icon(
-                  color: Color.fromARGB(255, 195, 245, 255),
-                  Icons.person,
-                  size: 4 * smallDistance,
-                )),
-                Text(
-                  'Hier gehts zum Profil',
-                  strutStyle: StrutStyle(),
-                ),
-              ]),
-            ),
-          ),
-        ),
-        // text: 'Hier kannst du dein Profil bearbeiten'),
-
-        MenuIcon(
-            icon: Icon(
-          color: Color.fromARGB(255, 195, 245, 255),
-          Icons.speaker_group_outlined,
-          size: bigDistance,
-        )),
-      ]),
-    );
+    return ListView(
+        padding: const EdgeInsets.all(10),
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        semanticChildCount: _icons.length,
+        children: [
+          _icons[0],
+          const SizedBox(width: 30),
+          _icons[1],
+          const SizedBox(width: 30),
+          _icons[2],
+        ]);
   }
 }
