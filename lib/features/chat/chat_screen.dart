@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:ao/config/keys.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -13,26 +13,6 @@ class ChatScreen extends StatefulWidget {
 
   @override
   createState() => _ChatScreenState();
-}
-
-Future<String> callGemini(String prompt) async {
-  final url = Uri.parse(
-      'https://api.openai.com/v1/chat/completions'); // Anpassen an Gemini-API
-  final headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer $apiKey',
-  };
-  final body = jsonEncode({
-    'model': 'gemini 1.5', // gemini model anpassbar
-    'messages': [
-      {'role': 'user', 'content': prompt},
-    ],
-  });
-
-  final response = await http.post(url, headers: headers, body: body);
-  final data = jsonDecode(response.body);
-  final message = data['choices'][0]['message']['content'];
-  return message;
 }
 
 class _ChatScreenState extends State<ChatScreen> {

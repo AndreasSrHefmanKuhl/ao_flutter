@@ -39,7 +39,8 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-  assets:
+  assets: 
+    - mey.env
     - assets/images/
     - assets/icons/
  
