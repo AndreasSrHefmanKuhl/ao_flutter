@@ -25,7 +25,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     // Create a GenerativeModel instance
     final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: apiKey);
-    final chat = model.startChat();
+    //final chat = model.startChat();
   }
 
   Future<void> _sendMessage() async {

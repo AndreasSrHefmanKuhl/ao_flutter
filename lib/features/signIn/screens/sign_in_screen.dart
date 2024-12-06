@@ -1,6 +1,7 @@
 import 'package:ao/config/colors.dart';
 import 'package:ao/config/sizes.dart';
 import 'package:ao/config/themes.dart';
+import 'package:ao/features/signIn/screens/veri_app_screen.dart';
 import 'package:ao/features/signIn/widgets/input_field.dart';
 import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
@@ -55,10 +56,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   const InputField(text: "Email Adress"),
                   mediumVerticalSpace,
                   UltButton(
-                      onTap: Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) {})),
+                      onTap: () => MaterialPageRoute(
+                          builder: (context) => const VeriAppScreen()),
                       bgColor: const Color.fromARGB(156, 255, 255, 255),
                       borderWidth: 1,
                       borderRadius: 12,

@@ -1,6 +1,6 @@
 import 'package:ao/config/colors.dart';
 import 'package:ao/config/sizes.dart';
-import 'package:ao/features/main_menu/screens/main_screen.dart';
+import 'package:ao/features/main_menu/screens/my_main_screen.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
 
@@ -39,18 +39,17 @@ class VeriAppScreen extends StatelessWidget {
         Positioned(
             bottom: 200,
             left: 120,
-            child: GestureDetector(
+            child: UltButton(
                 onTap: () =>
                     MaterialPageRoute(builder: (context) => const MyMainMenu()),
-                child: const UltButton(
-                    bgColor: bgColor,
-                    borderWidth: btnBorderWidth,
-                    borderRadius: btnBorderRadius,
-                    text: 'Main Menu',
-                    textColor: borderBlack,
-                    btnHeight: btnHeightAlt,
-                    btnWidth: btnWidthAlt,
-                    borderColor: borderBlack))),
+                bgColor: bgColor,
+                borderWidth: btnBorderWidth,
+                borderRadius: btnBorderRadius,
+                text: 'Main Menu',
+                textColor: borderBlack,
+                btnHeight: btnHeightAlt,
+                btnWidth: btnWidthAlt,
+                borderColor: borderBlack))
       ]),
     );
   }
