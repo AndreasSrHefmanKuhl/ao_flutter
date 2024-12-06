@@ -21,15 +21,12 @@ class MenuIcon extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(14))),
       height: 2 * bigDistance,
       width: bigDistance,
-      child: Expanded(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Expanded(
-          child: GestureDetector(
-            onTap: onTap,
-            child: Icon(
-              icon,
-              size: 65,
-            ),
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        GestureDetector(
+          onTap: onTap,
+          child: Icon(
+            icon,
+            size: 65,
           ),
         ),
         Text(
@@ -39,7 +36,7 @@ class MenuIcon extends StatelessWidget {
             fontSize: 8,
           ),
         )
-      ])),
+      ]),
     );
   }
 }

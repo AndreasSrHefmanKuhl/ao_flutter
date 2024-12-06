@@ -4,10 +4,12 @@ import 'package:ao/config/themes.dart';
 import 'package:ao/features/main_menu/widgets/menu_slider.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-/*void main() {
+void main() async {
+  await dotenv.load(fileName: "mey.env");
   runApp(const MyMainMenu());
-}*/
+}
 
 class MyMainMenu extends StatefulWidget {
   const MyMainMenu({super.key});

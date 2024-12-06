@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 import 'package:flutter/material.dart';
@@ -15,21 +16,28 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<Map<String, dynamic>> _messages = [];
   late GenerativeModel model;
 
-  Future<void> startBot() async {
-    // API access setup
-    final apiKey = Platform.environment['MEY_NAME'];
-    if (apiKey == null) {
-      print('No \$MEY_NAME environment variable');
-      exit(1);
+  Future startBot() async {
+    // API access setupawait
+    await dotenv.load(fileName: "mey.env");
+    final apiKey = dotenv.env['Mey_Name'];
+
+    // final apiKey = Platform.environment['MEY_NAME'];
+    if (apiKey != null) {
+      final model = GenerativeModel(model: 'Gemini 1.5 Flash', apiKey: apiKey);
+      return model;
     }
 
-    // Create a GenerativeModel instance
-    final model = (model: 'gemini-1.5-flash', apiKey: apiKey);
-    // final chat = model.startChat();
+    print('No \$MEY_NAME environment variable');
+    exit(1);
   }
+
+  //Create a GenerativeModel instance
+
+  //final chat = model.();
 
   Future<void> _sendMessage() async {
     //  final chat = model.startChat();
+
     final prompt = _textController.text;
     _textController.clear();
 
@@ -38,7 +46,7 @@ class _ChatScreenState extends State<ChatScreen> {
     });
 
     try {
-      final responses = await model.generateContent([Content.text(prompt)]);
+      final responses = model.generateContentStream([Content.text(prompt)]);
 
       setState(() {
         _messages.add({'role': 'assistant', 'content': responses});

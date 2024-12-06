@@ -15,26 +15,28 @@ class MenuSlider extends StatefulWidget {
 }
 
 class _MenuSliderState extends State<MenuSlider> {
-  static final List<MenuIcon> _icons = [
-    MenuIcon(
-      onTap: () => MaterialPageRoute(
-          builder: (BuildContext context) => const ChatScreen()),
-      icon: (Icons.speaker_group_outlined),
-      text: 'Hier gehts zum Chat',
-    ),
-    MenuIcon(
-      onTap: () {},
-      icon: (Icons.person_2),
-      text: 'Hier gehts zum Profil',
-    ),
-    MenuIcon(
-      icon: (Icons.person_search_outlined),
-      text: 'hier kann man sich mit Freunden austauschen',
-      onTap: () {},
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
+    final List<MenuIcon> _icons = [
+      MenuIcon(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ChatScreen()),
+        ),
+        icon: (Icons.speaker_group_outlined),
+        text: 'Hier gehts zum Chat',
+      ),
+      MenuIcon(
+        onTap: () {},
+        icon: (Icons.person_2),
+        text: 'Hier gehts zum Profil',
+      ),
+      MenuIcon(
+        icon: (Icons.person_search_outlined),
+        text: 'hier kann man sich mit Freunden austauschen',
+        onTap: () {},
+      ),
+    ];
     return ListView(
         padding: const EdgeInsets.all(10),
         scrollDirection: Axis.horizontal,
