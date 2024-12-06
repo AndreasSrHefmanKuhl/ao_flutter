@@ -7,10 +7,6 @@ import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const SignInScreen());
-}
-
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 

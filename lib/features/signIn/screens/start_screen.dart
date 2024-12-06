@@ -8,9 +8,9 @@ import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:flutter/material.dart';
 import 'package:ao/config/themes.dart';
 
-void main() {
+/*void main() {
   runApp(const StartScreen());
-}
+}*/
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});

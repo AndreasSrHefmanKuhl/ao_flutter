@@ -4,9 +4,9 @@ import 'package:ao/features/main_menu/screens/my_main_screen.dart';
 import 'package:ao/features/signIn/widgets/ult_button.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+/*void main() {
   runApp(const VeriAppScreen());
-}
+}*/
 
 class VeriAppScreen extends StatelessWidget {
   const VeriAppScreen({super.key});
