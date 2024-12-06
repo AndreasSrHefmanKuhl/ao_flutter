@@ -65,41 +65,47 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         title: const Text('Chat with Gemini'),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: _messages.length,
-              itemBuilder: (context, index) {
-                final message = _messages[index];
-                return ListTile(
-                  title: Text(message['content']),
-                  trailing: Text(message['role']),
-                );
-              },
+      body: Stack(fit: StackFit.expand, children: [
+        const Image(
+          image: AssetImage('assets/images/background.png'),
+          fit: BoxFit.cover,
+        ),
+        Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: _messages.length,
+                itemBuilder: (context, index) {
+                  final message = _messages[index];
+                  return ListTile(
+                    title: Text(message['content']),
+                    trailing: Text(message['role']),
+                  );
+                },
+              ),
             ),
-          ),
-          const Divider(height: 1.0),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _textController,
-                    decoration:
-                        const InputDecoration(hintText: 'Send a message'),
+            const Divider(height: 1.0),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _textController,
+                      decoration:
+                          const InputDecoration(hintText: 'Send a message'),
+                    ),
                   ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: _sendMessage,
-                ),
-              ],
+                  IconButton(
+                    icon: const Icon(Icons.send),
+                    onPressed: _sendMessage,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ]),
     );
   }
 }

@@ -11,27 +11,34 @@ class UserListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Benutzerliste')),
-      body: FutureBuilder<List<User>>(
-        future: repository.getAllUsers(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator();
-          } else if (snapshot.hasError) {
-            return Text('Fehler beim Laden der Benutzer: ${snapshot.error}');
-          } else {
-            final users = snapshot.data!;
-            return ListView.builder(
-              itemCount: users.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(users[index].name),
-                );
-              },
-            );
-          }
-        },
-      ),
-    );
+        appBar: AppBar(title: const Text('Benutzerliste')),
+        body: Stack(fit: StackFit.expand, children: [
+          const Image(
+            image: AssetImage('assets/images/background.png'),
+            fit: BoxFit.cover,
+          ),
+          Positioned(
+            child: Center(
+                child: FutureBuilder<List<User>>(
+                    future: repository.getAllUsers(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const CircularProgressIndicator();
+                      } else if (snapshot.hasError) {
+                        return Text(
+                            'Fehler beim Laden der Benutzer: ${snapshot.error}');
+                      } else {
+                        final users = snapshot.data!;
+                        return ListView.builder(
+                            itemCount: users.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                title: Text(users[index].name),
+                              );
+                            });
+                      }
+                    })),
+          ),
+        ]));
   }
 }

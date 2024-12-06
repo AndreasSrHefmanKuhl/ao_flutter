@@ -20,72 +20,74 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: lightTheme,
-      home: const Scaffold(
-        body: Stack(fit: StackFit.expand, children: [
-          Image(
-            image: AssetImage('assets/images/background.png'),
-            fit: BoxFit.cover,
+    return Scaffold(
+      // theme: lightTheme,
+      appBar: AppBar(),
+      body: Stack(fit: StackFit.expand, children: [
+        const Image(
+          image: AssetImage('assets/images/background.png'),
+          fit: BoxFit.cover,
+        ),
+        const Positioned(
+          top: 130,
+          left: 16,
+          child: SizedBox(
+            width: 250,
+            height: 100,
+            child: (Expanded(
+                child: Text('Create an Account!',
+                    style: TextStyle(
+                      fontSize: headlineTextSize,
+                    )))),
           ),
-          Positioned(
-            top: 130,
-            left: 16,
-            child: SizedBox(
-              width: 250,
-              height: 100,
-              child: (Expanded(
-                  child: Text('Create an Account!',
-                      style: TextStyle(
-                        fontSize: headlineTextSize,
-                      )))),
-            ),
-          ),
-          Positioned(
-              top: 280,
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    InputField(text: "Name"),
-                    smallVerticalSpace,
-                    InputField(text: "Password"),
-                    smallVerticalSpace,
-                    InputField(text: "Email Adress"),
-                    mediumVerticalSpace,
-                    UltButton(
-                        onpressed: Navigator.push(context, MaterialPageRoute()),
-                        bgColor: Color.fromARGB(156, 255, 255, 255),
-                        borderWidth: 1,
-                        borderRadius: 12,
-                        text: 'Create Account',
-                        textColor: Colors.black87,
-                        btnHeight: btnHeightAlt,
-                        btnWidth: btnWidthAlt,
-                        borderColor: Colors.black87),
-                    mediumVerticalSpace,
-                    Row(children: [
-                      Divider(
-                        height: 2,
-                        thickness: 10,
-                      ),
-                      Text('or'),
-                      Divider(
-                        height: 2,
-                        thickness: 10,
-                      ),
-                    ]),
-                    minVerticalSpace,
-                    SignInRow(
-                        width: btnBorderWidth,
-                        radius: btnBorderRadius,
-                        color: borderBlack),
-                  ],
-                ),
-              )),
-        ]),
-      ),
+        ),
+        Positioned(
+            top: 280,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const InputField(text: "Name"),
+                  smallVerticalSpace,
+                  const InputField(text: "Password"),
+                  smallVerticalSpace,
+                  const InputField(text: "Email Adress"),
+                  mediumVerticalSpace,
+                  UltButton(
+                      onTap: Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) {})),
+                      bgColor: const Color.fromARGB(156, 255, 255, 255),
+                      borderWidth: 1,
+                      borderRadius: 12,
+                      text: 'Create Account',
+                      textColor: Colors.black87,
+                      btnHeight: btnHeightAlt,
+                      btnWidth: btnWidthAlt,
+                      borderColor: Colors.black87),
+                  mediumVerticalSpace,
+                  const Row(children: [
+                    Divider(
+                      height: 2,
+                      thickness: 10,
+                    ),
+                    Text('or'),
+                    Divider(
+                      height: 2,
+                      thickness: 10,
+                    ),
+                  ]),
+                  minVerticalSpace,
+                  const SignInRow(
+                      width: btnBorderWidth,
+                      radius: btnBorderRadius,
+                      color: borderBlack),
+                ],
+              ),
+            )),
+      ]),
     );
   }
 }

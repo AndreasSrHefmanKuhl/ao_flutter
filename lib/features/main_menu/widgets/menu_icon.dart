@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class MenuIcon extends StatelessWidget {
   final IconData icon;
   final String text;
+  final Function() onTap;
 
-  const MenuIcon({super.key, required this.icon, required this.text});
+  const MenuIcon(
+      {super.key, required this.icon, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,12 @@ class MenuIcon extends StatelessWidget {
       child: Expanded(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Expanded(
-          child: Icon(
-            icon,
-            size: 65,
+          child: GestureDetector(
+            onTap: onTap,
+            child: Icon(
+              icon,
+              size: 65,
+            ),
           ),
         ),
         Text(

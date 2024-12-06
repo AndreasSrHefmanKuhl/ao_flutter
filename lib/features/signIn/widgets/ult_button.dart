@@ -9,35 +9,36 @@ class UltButton extends StatelessWidget {
   final double btnHeight;
   final double btnWidth;
   final Color borderColor;
-  final Function onpressed;
+  final GestureTapCallback onTap;
 
-  const UltButton({
-    super.key,
-    required this.bgColor,
-    required this.borderWidth,
-    required this.borderRadius,
-    required this.text,
-    required this.textColor,
-    required this.btnHeight,
-    required this.btnWidth,
-    required this.borderColor,
-    required this.onpressed,
-  });
+  const UltButton(
+      {super.key,
+      required this.bgColor,
+      required this.borderWidth,
+      required this.borderRadius,
+      required this.text,
+      required this.textColor,
+      required this.btnHeight,
+      required this.btnWidth,
+      required this.borderColor,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            color: bgColor,
-            border: Border.all(width: borderWidth, color: borderColor),
-            borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
-        height: btnHeight,
-        width: btnWidth,
-        child: Text(
-          text,
-          style: TextStyle(color: textColor),
-          textAlign: TextAlign.center,
-        ));
+    return GestureDetector(
+        onTap: onTap,
+        child: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: bgColor,
+                border: Border.all(width: borderWidth, color: borderColor),
+                borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
+            height: btnHeight,
+            width: btnWidth,
+            child: Text(
+              text,
+              style: TextStyle(color: textColor),
+              textAlign: TextAlign.center,
+            )));
   }
 }
