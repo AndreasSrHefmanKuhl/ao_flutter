@@ -1,5 +1,6 @@
 import 'package:ao/config/colors.dart';
 import 'package:ao/config/sizes.dart';
+
 import 'package:ao/features/signIn/screens/veri_screen.dart';
 import 'package:ao/features/signIn/widgets/g_button.dart';
 import 'package:ao/features/signIn/widgets/sign_in_row.dart';
@@ -7,7 +8,7 @@ import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:flutter/material.dart';
 import 'package:ao/config/themes.dart';
 
-void main(List<String> args) {
+void main() {
   runApp(const StartScreen());
 }
 
@@ -18,9 +19,9 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: lightTheme,
-      home: const Scaffold(
+      home: Scaffold(
         body: Stack(fit: StackFit.expand, children: [
-          Image(
+          const Image(
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
@@ -28,13 +29,13 @@ class StartScreen extends StatelessWidget {
             bottom: bigDistance,
             right: (3 * smallDistance),
             child: Column(children: [
-              SignInRow(
+              const SignInRow(
                 width: btnBorderWidth,
                 radius: btnBorderRadius,
                 color: borderWhite,
               ),
               minVerticalSpace,
-              Row(children: [
+              const Row(children: [
                 Divider(
                   height: 2,
                   thickness: 10,
@@ -46,7 +47,10 @@ class StartScreen extends StatelessWidget {
                 ),
               ]),
               minVerticalSpace,
-              GButton(onPressed: () {}),
+              GButton(
+                onTap: () => MaterialPageRoute(
+                    builder: (BuildContext context) => const VeriScreen()),
+              ),
             ]),
           ),
         ]),

@@ -17,57 +17,53 @@ class VeriScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: lightTheme,
-      home: Scaffold(
-        body: Stack(fit: StackFit.expand, children: [
-          const Image(
-            image: AssetImage('assets/images/background.png'),
-            fit: BoxFit.cover,
+    return Scaffold(
+      body: Stack(fit: StackFit.expand, children: [
+        const Image(
+          image: AssetImage('assets/images/background.png'),
+          fit: BoxFit.cover,
+        ),
+        const Positioned(
+          top: 140,
+          left: 8,
+          child: Expanded(
+            child: VeriCodeText(),
           ),
-          const Positioned(
-            top: 140,
-            left: 8,
-            child: Expanded(
-              child: VeriCodeText(),
-            ),
-          ),
-          const Positioned(
-            left: 60,
-            bottom: 450,
-            child: VeriRow(),
-          ),
-          mediumVerticalSpace,
-          Positioned(
-              left: 125,
-              bottom: 300,
-              child: GestureDetector(
-                  onTap: () => MaterialPageRoute(
-                      builder: (context) => const VeriAppScreen()),
-                  child: const UltButton(
-                      bgColor: bgColor,
-                      borderWidth: btnBorderWidth,
-                      borderRadius: btnBorderRadius,
-                      text: 'Submit',
-                      textColor: borderBlack,
-                      btnHeight: btnHeightAlt,
-                      btnWidth: btnWidthAlt,
-                      borderColor: borderBlack))),
-          const Positioned(
-              bottom: 150,
-              left: 100,
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                Text('or'),
-                minVerticalSpace,
-                SignInRow(
-                  width: btnBorderWidth,
-                  radius: btnBorderRadius,
-                  color: borderBlack,
-                ),
-              ])),
-        ]),
-      ),
+        ),
+        const Positioned(
+          left: 60,
+          bottom: 450,
+          child: VeriRow(),
+        ),
+        mediumVerticalSpace,
+        Positioned(
+            left: 125,
+            bottom: 300,
+            child: UltButton(
+                onTap: () => MaterialPageRoute(
+                    builder: (context) => const VeriAppScreen()),
+                bgColor: bgColor,
+                borderWidth: btnBorderWidth,
+                borderRadius: btnBorderRadius,
+                text: 'Submit',
+                textColor: borderBlack,
+                btnHeight: btnHeightAlt,
+                btnWidth: btnWidthAlt,
+                borderColor: borderBlack)),
+        const Positioned(
+            bottom: 150,
+            left: 100,
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Text('or'),
+              minVerticalSpace,
+              SignInRow(
+                width: btnBorderWidth,
+                radius: btnBorderRadius,
+                color: borderBlack,
+              ),
+            ])),
+      ]),
     );
   }
 }

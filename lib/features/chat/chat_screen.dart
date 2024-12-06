@@ -63,7 +63,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat with Gemini'),
+        title: const Text('Welcome to Chat!'),
       ),
       body: Stack(fit: StackFit.expand, children: [
         const Image(
