@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -14,9 +15,30 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [];
-  late GenerativeModel model;
 
-  Future startBot() async {
+  //late GenerativeModel model;
+
+  Future<void> startBot() async {
+    /* try {
+      await dotenv.load(fileName: 'mey.env');
+
+      var apiKey = dotenv.env['MEY_ENV'];
+
+      if (apiKey != null) {
+        final model = GenerativeModel(
+          model: 'Gemini 1.5 Flash',
+          apiKey: apiKey,
+        );
+        model.startChat();
+        print('GenerativeModel initialized successfully.');
+      } else {
+        print('No \$MEY_NAME environment variable found.');
+      }
+    } catch (e) {
+      print('Error initializing GenerativeModel: $e');
+    }
+  }
+  /* Future startBot() async {
     // API access setupawait
     await dotenv.load(fileName: "mey.env");
     final apiKey = dotenv.env['Mey_Name'];
@@ -29,24 +51,22 @@ class _ChatScreenState extends State<ChatScreen> {
 
     print('No \$MEY_NAME environment variable');
     exit(1);
-  }
+  }*/
 
   //Create a GenerativeModel instance
 
   //final chat = model.();
 
-  Future<void> _sendMessage() async {
-    //  final chat = model.startChat();
-
-    final prompt = _textController.text;
+  Future<void> sendMessage() async {
+    final userInput = _textController.text;
     _textController.clear();
 
     setState(() {
-      _messages.add({'role': 'user', 'content': prompt});
+      _messages.add({'role': 'user', 'content': userInput});
     });
 
     try {
-      final responses = model.generateContentStream([Content.text(prompt)]);
+      final responses = await model.generateContent(Content.text([prompt]));
 
       setState(() {
         _messages.add({'role': 'assistant', 'content': responses});
@@ -56,12 +76,13 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {
         _messages.add({
           'role': 'assistant',
-          'content': 'An error occurred. Please try again.'
+          'content': 'An error occurred. Please try again.()',
         });
       });
     }
   }
-
+*/
+  }
   @override
   void initState() {
     super.initState();
@@ -107,7 +128,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.send),
-                    onPressed: _sendMessage,
+                    onPressed: sendMessage,
                   ),
                 ],
               ),
