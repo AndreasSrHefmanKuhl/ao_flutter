@@ -8,6 +8,10 @@ import 'package:ao/features/signIn/widgets/veri_code_text.dart';
 import 'package:ao/features/signIn/widgets/veri_row.dart';
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const VeriAppScreen());
+}
+
 class VeriScreen extends StatelessWidget {
   const VeriScreen({super.key});
 
@@ -36,8 +40,10 @@ class VeriScreen extends StatelessWidget {
             left: 125,
             bottom: 300,
             child: UltButton(
-                onTap: () => MaterialPageRoute(
-                    builder: (context) => const VeriAppScreen()),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const VeriAppScreen())),
                 bgColor: bgColor,
                 borderWidth: btnBorderWidth,
                 borderRadius: btnBorderRadius,

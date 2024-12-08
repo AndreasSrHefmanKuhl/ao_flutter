@@ -48,7 +48,7 @@ class StartScreen extends StatelessWidget {
               ]),
               minVerticalSpace,
               GButton(
-                onTap: () => MaterialPageRoute(
+                onTap: () =>Navigator.push(context) MaterialPageRoute(
                     builder: (BuildContext context) => const VeriScreen()),
               ),
             ]),

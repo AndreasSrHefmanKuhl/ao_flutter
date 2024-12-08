@@ -1,23 +1,26 @@
-import 'package:ao/features/chat/chat_screen.dart';
+import 'package:ao/features/chat/screens/chat_screen.dart';
+import 'package:ao/features/data_screen_tests/user_list_screen.dart';
 import 'package:ao/features/main_menu/widgets/menu_icon.dart';
+import 'package:ao/features/shared/data/database_repository.dart';
+import 'package:ao/features/shared/data/mockdatabase_repository.dart';
 
 import 'package:flutter/material.dart';
 
 class MenuSlider extends StatefulWidget {
+  final DatabaseRepository repository;
   // ignore: unused_field
 
-  const MenuSlider({
-    super.key,
-  });
+  const MenuSlider({super.key, required this.repository});
 
   @override
   State<MenuSlider> createState() => _MenuSliderState();
 }
 
 class _MenuSliderState extends State<MenuSlider> {
+  late final DatabaseRepository repository = MockDatabaseRepository();
   @override
   Widget build(BuildContext context) {
-    final List<MenuIcon> _icons = [
+    final List<MenuIcon> icons = [
       MenuIcon(
         onTap: () => Navigator.push(
           context,
@@ -27,7 +30,13 @@ class _MenuSliderState extends State<MenuSlider> {
         text: 'Hier gehts zum Chat',
       ),
       MenuIcon(
-        onTap: () {},
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => UserListScreen(
+                    repository: repository,
+                  )),
+        ),
         icon: (Icons.person_2),
         text: 'Hier gehts zum Profil',
       ),
@@ -41,13 +50,13 @@ class _MenuSliderState extends State<MenuSlider> {
         padding: const EdgeInsets.all(10),
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        semanticChildCount: _icons.length,
+        semanticChildCount: icons.length,
         children: [
-          _icons[0],
+          icons[0],
           const SizedBox(width: 30),
-          _icons[1],
+          icons[1],
           const SizedBox(width: 30),
-          _icons[2],
+          icons[2],
         ]);
   }
 }
