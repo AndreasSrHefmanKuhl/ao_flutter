@@ -54,7 +54,7 @@ class Bot {
       //  erzähl mir einen witz. Was ist der Sinn des Lebens?(42)
       // implementierung von verschiedenen launen durch if else funktionsblock in klasse auslagern und durch zusätzliche if reaktion simulieren .
 
-      else if (health.any((element) => userInput.toString(element))) {
+      else if (health.any((element) => userInput.contains(element))) {
         return ("Mir geht es gut, danke! Und dir?");
       } else if (weather.any((element) => userInput.contains(element))) {
         return("Das Wetter ist heute schön, oder?");
