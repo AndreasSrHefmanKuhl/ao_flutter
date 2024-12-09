@@ -38,11 +38,11 @@ class _MenuSliderState extends State<MenuSlider> {
                   )),
         ),
         icon: (Icons.person_2),
-        text: 'Hier gehts zum Profil',
+        text: 'Hier gehts zum Profil... coming soon',
       ),
       MenuIcon(
         icon: (Icons.person_search_outlined),
-        text: 'hier kann man sich mit Freunden austauschen',
+        text: 'hier kann man sich mit Freunden austauschen... coming soon',
         onTap: () {},
       ),
     ];
