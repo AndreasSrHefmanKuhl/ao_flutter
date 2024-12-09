@@ -1,19 +1,19 @@
 import 'package:ao/features/chat/models/bot.dart';
 import 'package:flutter/material.dart';
 
-class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key});
+class BotScreen extends StatefulWidget {
+  const BotScreen({super.key});
 
   @override
   createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatScreenState extends State<BotScreen> {
   final TextEditingController _textController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [];
-  final Bot _chatBot = Bot();
+  final Bot chatBot = Bot();
 
-  Future<void> sendMessage() async {
+  Future sendMessage() async {
     final userInput = _textController.text;
     _textController.clear();
 
@@ -21,17 +21,16 @@ class _ChatScreenState extends State<ChatScreen> {
       _messages.add({'role': 'user', 'content': userInput});
     });
 
-    final botResponse = _chatBot.botAnswer(userInput);
+    final String botRespons = await chatBot.botAnswer(userInput);
 
     setState(() {
-      _messages.add({'role': 'assistant', 'content': botResponse});
+      _messages.add({'role': 'assistant', 'content': botRespons});
     });
   }
 
   @override
   void initState() {
     super.initState();
-    Bot();
   }
 
   @override
