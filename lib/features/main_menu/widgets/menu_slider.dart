@@ -1,4 +1,4 @@
-import 'package:ao/features/chat/screens/chat_screen.dart';
+import 'package:ao/features/chat/screens/chat_screen_bot.dart';
 import 'package:ao/features/data_screen_tests/user_list_screen.dart';
 import 'package:ao/features/main_menu/widgets/menu_icon.dart';
 import 'package:ao/features/shared/data/database_repository.dart';
@@ -24,7 +24,7 @@ class _MenuSliderState extends State<MenuSlider> {
       MenuIcon(
         onTap: () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const ChatScreen()),
+          MaterialPageRoute(builder: (context) => const BotScreen()),
         ),
         icon: (Icons.speaker_group_outlined),
         text: 'Hier gehts zum Chat',

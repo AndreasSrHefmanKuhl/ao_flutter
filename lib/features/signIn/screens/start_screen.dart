@@ -8,9 +8,9 @@ import 'package:ao/features/signIn/widgets/sign_in_row.dart';
 import 'package:flutter/material.dart';
 import 'package:ao/config/themes.dart';
 
-/*void main() {
+void main() {
   runApp(const StartScreen());
-}*/
+}
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -48,9 +48,12 @@ class StartScreen extends StatelessWidget {
               ]),
               minVerticalSpace,
               GButton(
-                onTap: () =>Navigator.push(context) MaterialPageRoute(
-                    builder: (BuildContext context) => const VeriScreen()),
-              ),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const VeriScreen()),
+                ),
+              )
             ]),
           ),
         ]),

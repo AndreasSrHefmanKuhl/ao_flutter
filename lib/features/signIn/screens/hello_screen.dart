@@ -35,7 +35,7 @@ class _HelloScreenState extends State<HelloScreen> {
   }
 
   String? confirmPassword(String? value) {
-    if (myPasswordController.text != myConfirmController.value) {
+    if (myPasswordController.value != myConfirmController.value) {
       return ('HIER STIMMT WAS NICHT!');
     }
 
@@ -130,9 +130,9 @@ class _HelloScreenState extends State<HelloScreen> {
               OutlinedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    print("eingeloggt");
+                    throw ("eingeloggt");
                   } else {
-                    print("doof gelaufen");
+                    throw ("doof gelaufen");
                   }
 
                   /*setState(() {

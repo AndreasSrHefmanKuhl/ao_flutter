@@ -57,13 +57,13 @@ class MockDatabaseRepository implements DatabaseRepository {
   @override
   Future<void> botFace() async {
     await Future.delayed(const Duration(seconds: 1));
-    print('Bot-Gesicht wird angezeigt');
+    throw ('Bot-Gesicht wird angezeigt');
   }
 
   @override
   Future<void> botChat(String userInput) async {
     await Future.delayed(const Duration(seconds: 1));
-    print('Bot: Hallo! Du hast geschrieben: $userInput');
+    ('Bot: Hallo! Du hast geschrieben: $userInput');
 
     _messages.add(Message(
       sender: 'Bot',

@@ -1,12 +1,9 @@
 import 'package:ao/config/sizes.dart';
 import 'package:ao/config/themes.dart';
-
 import 'package:ao/features/main_menu/widgets/menu_slider.dart';
 import 'package:ao/features/shared/data/database_repository.dart';
 import 'package:ao/features/shared/data/mockdatabase_repository.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   runApp(const MyMainMenu());
@@ -21,6 +18,7 @@ class MyMainMenu extends StatefulWidget {
 
 class _MyMainMenuState extends State<MyMainMenu> {
   late final DatabaseRepository repository = MockDatabaseRepository();
+
   @override
   Widget build(BuildContext context) {
     //final List<MenuIcon> icon = _icons;
