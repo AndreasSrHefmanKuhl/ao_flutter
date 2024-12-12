@@ -4,8 +4,13 @@ import 'package:ao/features/main_menu/widgets/menu_slider.dart';
 import 'package:ao/features/shared/data/database_repository.dart';
 import 'package:ao/features/shared/data/mockdatabase_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 
 void main() async {
+  await dotenv.load();
+  final apiKey = ['MEY_NAME'];
+  final model = GenerativeModel(model: 'Gemini 1.5 Flash', apiKey: apiKey);
   runApp(const MyMainMenu());
 }
 

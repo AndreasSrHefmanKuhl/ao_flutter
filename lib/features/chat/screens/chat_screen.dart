@@ -18,71 +18,53 @@ class _ChatScreenState extends State<ChatScreen> {
 
   //late GenerativeModel model;
 
-  Future<void> startBot() async {
-    /* try {
-      await dotenv.load(fileName: 'mey.env');
+  Future startBot() async {
+    try {
+      await dotenv.load(fileName: '.env');
 
       var apiKey = dotenv.env['MEY_ENV'];
 
       if (apiKey != null) {
-        final model = GenerativeModel(
-          model: 'Gemini 1.5 Flash',
-          apiKey: apiKey,
-        );
-        model.startChat();
+        final model =
+            GenerativeModel(model: 'Gemini 1.5 Flash', apiKey: apiKey);
+
         print('GenerativeModel initialized successfully.');
       } else {
         print('No \$MEY_NAME environment variable found.');
       }
     } catch (e) {
       print('Error initializing GenerativeModel: $e');
-    }
-  }
-  /* Future startBot() async {
-    // API access setupawait
-    await dotenv.load(fileName: "mey.env");
-    final apiKey = dotenv.env['Mey_Name'];
 
-    // final apiKey = Platform.environment['MEY_NAME'];
-    if (apiKey != null) {
-      final model = GenerativeModel(model: 'Gemini 1.5 Flash', apiKey: apiKey);
-      return model;
-    }
+      Future<void> sendMessage(GenerativeModel model) async {
+        await dotenv.load(fileName: '.env');
+        String apiKey = dotenv.env['MEY_ENV']!;
 
-    print('No \$MEY_NAME environment variable');
-    exit(1);
-  }*/
+        final userInput = _textController.text;
+        _textController.clear();
+        final content = [Content.text(userInput)];
+        final response = await model.generateContent(content);
 
-  //Create a GenerativeModel instance
-
-  //final chat = model.();
-
-  Future<void> sendMessage() async {
-    final userInput = _textController.text;
-    _textController.clear();
-
-    setState(() {
-      _messages.add({'role': 'user', 'content': userInput});
-    });
-
-    try {
-      final responses = await model.generateContent(Content.text([prompt]));
-
-      setState(() {
-        _messages.add({'role': 'assistant', 'content': responses});
-      });
-    } catch (e) {
-      print('Error sending message: $e');
-      setState(() {
-        _messages.add({
-          'role': 'assistant',
-          'content': 'An error occurred. Please try again.()',
+        setState(() {
+          _messages.add({'role': 'User', 'content': userInput});
         });
-      });
+
+        try {
+          final responses = (() {
+            _messages.add({'role': 'Gemini', 'content': response});
+          });
+        } catch (e) {
+          print('Error sending message: $e');
+          setState(() {
+            _messages.add({
+              'role': 'assistant',
+              'content': 'An error occurred. Please try again.()',
+            });
+          });
+        }
+      }
     }
   }
-*/
-  }
+
   @override
   void initState() {
     super.initState();
