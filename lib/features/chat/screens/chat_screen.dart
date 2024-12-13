@@ -18,7 +18,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   //late GenerativeModel model;
 
-  Future startBot() async {
+  Future<void> startBot() async {
     try {
       await dotenv.load(fileName: '.env');
 
@@ -35,14 +35,15 @@ class _ChatScreenState extends State<ChatScreen> {
     } catch (e) {
       print('Error initializing GenerativeModel: $e');
 
-      Future<void> sendMessage(GenerativeModel model) async {
-        await dotenv.load(fileName: '.env');
-        String apiKey = dotenv.env['MEY_ENV']!;
+      Future<void> _sendMessage(GenerativeModel model) async {
+        final chat = model.startChat();
 
         final userInput = _textController.text;
         _textController.clear();
-        final content = [Content.text(userInput)];
-        final response = await model.generateContent(content);
+        final content =
+            chat.sendMessage([Content.text(userInput)] as Content).toString();
+        final response =
+            await model.generateContent(content as Iterable<Content>);
 
         setState(() {
           _messages.add({'role': 'User', 'content': userInput});
@@ -110,7 +111,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.send),
-                    onPressed: sendMessage,
+                    onPressed: sendMessage(),
                   ),
                 ],
               ),
