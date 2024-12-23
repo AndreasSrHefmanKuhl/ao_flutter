@@ -73,6 +73,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  cloud_firestore:
+    dependency: transitive
+    description:
+      name: cloud_firestore
+      sha256: ba89d4ae6ddaea0241f50a2dc1ffe36f32891f1a6bc78540f55d79c7f8ed536a
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.6.0"
+  cloud_firestore_platform_interface:
+    dependency: transitive
+    description:
+      name: cloud_firestore_platform_interface
+      sha256: "966cfd6beb2e943f3363a7bced4476533caa55d2338ffd876855c07e5296d1d7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.6.0"
+  cloud_firestore_web:
+    dependency: transitive
+    description:
+      name: cloud_firestore_web
+      sha256: "110ba7ff3322c239527e5be3c0d471a3e14fd0a870b2feff96d1e527a2eae2bb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.4.0"
   collection:
     dependency: transitive
     description:
@@ -153,6 +177,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.19.0"
+  firestore_converter:
+    dependency: "direct main"
+    description:
+      name: firestore_converter
+      sha256: "9f56befe95693a774407d764e4afda258ed40109b8655e2131e195d33697290f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.9"
+  firestore_ui:
+    dependency: "direct main"
+    description:
+      name: firestore_ui
+      sha256: "0c7cb836cc30c1c750b6817fd7257550686a9cc01dc8e0fd49659a157c193934"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.30.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -182,6 +222,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
+  flutter_staggered_grid_view:
+    dependency: transitive
+    description:
+      name: flutter_staggered_grid_view
+      sha256: f0b6d8c0fa7b4b444985cdde68492c0138a4fb6fc57a641b24cb234b7ee0f5c4
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter

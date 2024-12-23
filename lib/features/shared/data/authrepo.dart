@@ -4,7 +4,7 @@ abstract class AuthRepository {
   // Alle vorhandenen User zurückgeben.
   Future<List<User>> getAllUsers();
 
-  Future registerUser(User user);
+  Future registerUser(String email, String password);
 
   Future<User> showUser(User user);
 

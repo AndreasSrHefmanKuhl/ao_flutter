@@ -2,27 +2,31 @@ import 'package:ao/features/shared/data/authrepo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ao/features/shared/models/user.dart';
 import 'package:ao/features/shared/repositories/auth_repository.dart';
+import 'package:firestore_converter/firestore_converter.dart';
 
 class FirebaseAuthRepository implements AuthRepository {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirestoreConverter converter =const FirestoreConverter();
 
   @override
   Future<List<User?>> getAllUsers() async {
-    throw UnimplementedError();
+    final List<UserInfo> _users = _firebaseAuth.app.options.
+   
   }
 
   @override
-  Future<void> registerUser(user) async {
+  Future<void> registerUser(String email, String password) async {
     try {
-      _firebaseAuth.currentUser;
+      _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
     } on FirebaseAuthException catch (e) {
       rethrow;
     }
   }
 
   @override
-  Future<bool> deleteUser(String userId) async {
-    throw UnimplementedError();
+  Future<bool> deleteUser(String currentUser) async {
+    await _firebaseAuth.currentUser.delete();
   }
 
   @override
@@ -39,11 +43,8 @@ class FirebaseAuthRepository implements AuthRepository {
   }
 
   @override
-  Future<User> showUser(User user) async {
-    // Not directly supported by Firebase Auth.
-    // Consider using a separate Firestore service
-    // to retrieve user data if needed.
-    throw UnimplementedError();
+  Future<User> showUser(Nutzer user) async {
+    final user = await _firebaseAuth.currentUser;
   }
 
   @override
