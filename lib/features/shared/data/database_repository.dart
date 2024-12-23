@@ -2,7 +2,7 @@ import 'package:ao/features/shared/models/messages.dart';
 import 'package:ao/features/shared/models/user.dart';
 
 abstract class DatabaseRepository {
-  // Benutzer
+  //  auth Benutzer
 
   Future<List<User>> getAllUsers();
 

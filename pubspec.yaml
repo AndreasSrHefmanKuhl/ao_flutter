@@ -18,6 +18,10 @@ dependencies:
   http: ^1.2.2
   google_generative_ai: ^0.4.6
   flutter_dotenv: ^5.2.1
+  provider: ^6.1.2
+  firebase_auth: ^5.3.4
+  firestore_ui: ^1.30.0
+  firestore_converter: ^1.0.9
 
 
   

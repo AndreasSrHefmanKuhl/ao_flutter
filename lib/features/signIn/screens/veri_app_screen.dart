@@ -40,8 +40,10 @@ class VeriAppScreen extends StatelessWidget {
             bottom: 200,
             left: 120,
             child: UltButton(
-                onTap: () =>
-                    MaterialPageRoute(builder: (context) => const MyMainMenu()),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyMainMenu())),
                 bgColor: bgColor,
                 borderWidth: btnBorderWidth,
                 borderRadius: btnBorderRadius,
