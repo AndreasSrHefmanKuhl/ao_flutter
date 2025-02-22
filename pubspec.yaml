@@ -19,6 +19,8 @@ dependencies:
   google_generative_ai: ^0.4.6
   flutter_dotenv: ^5.2.1
   speech_to_text: ^7.0.0
+  vector_math: ^2.1.4
+  font_awesome_flutter: ^10.8.0
 
 
   
