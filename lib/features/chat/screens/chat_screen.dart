@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -14,6 +15,15 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [];
   late GenerativeModel model;
+  late stt.SpeechToText _speech;
+  bool _isListening = false;
+  String _input = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _speech = stt.SpeechToText();
+  }
 
   Future<void> startChat() async {
     try {
@@ -51,7 +61,7 @@ class _ChatScreenState extends State<ChatScreen> {
       });
 
       // KI respons
-      final response = await chat.sendMessage(userInput as Content);
+      final response = await chat.sendMessage(Content.text(userInput));
       setState(() {
         _messages.add({'role': 'Gemini', 'content': response.text});
       });
@@ -63,11 +73,38 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  void _listen() async {
+    if (!_isListening) {
+      bool available = await _speech.initialize(
+        onStatus: (val) => Text('onStatus: $val'),
+        onError: (val) => Text('onError: $val'),
+      );
+      if (available) {
+        setState(() => _isListening = true);
+        _speech.listen(
+          onResult: (val) => setState(() {
+            _input = val.recognizedWords;
+            _textController.text = _input;
+          }),
+        );
+      }
+    } else {
+      setState(() => _isListening = false);
+      _speech.stop();
+
+      if (_input.isNotEmpty) {
+        _textController.text = _input;
+        sendMessage();
+        _input = '';
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome to Chat!'),
+        title: const Text('Welcome!'),
       ),
       body: FutureBuilder(
         future: startChat(),
@@ -114,6 +151,10 @@ class _ChatScreenState extends State<ChatScreen> {
                           IconButton(
                             icon: const Icon(Icons.send),
                             onPressed: sendMessage,
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.phone_in_talk),
+                            onPressed: _listen,
                           ),
                         ],
                       ),
