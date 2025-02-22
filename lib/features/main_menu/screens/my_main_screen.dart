@@ -1,6 +1,7 @@
 import 'package:ao/config/sizes.dart';
 import 'package:ao/config/themes.dart';
 import 'package:ao/features/main_menu/widgets/menu_slider.dart';
+import 'package:ao/features/main_menu/widgets/radial_menu.dart';
 import 'package:ao/features/shared/data/database_repository.dart';
 import 'package:ao/features/shared/data/mockdatabase_repository.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class _MyMainMenuState extends State<MyMainMenu> {
           Positioned(
             top: 50,
             left: 100,
-            child: Column(
+            child: SizedBox.expand(child: RadialMenu()),
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
