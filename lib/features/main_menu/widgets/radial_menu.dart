@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
-// The parent Material App
+// The parent Materiial App
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
